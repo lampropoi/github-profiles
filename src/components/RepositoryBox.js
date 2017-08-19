@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import colors from '../modules/colors';
 import {media} from '../modules/style-utils';
 
+import star from '../assets/star.svg';
+
 const Repository = styled.div`
     margin: 20px 0px;
     border: 1px solid lightgray;
@@ -43,7 +45,8 @@ const RepositoryBox = ({
   <Repository>
     <Name>{name}</Name>
     <Description>{description}</Description>
-    <Details />
+    <Details>
+    </Details>
   </Repository>
 );
 

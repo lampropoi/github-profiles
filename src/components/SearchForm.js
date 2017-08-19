@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import colors from '../modules/colors';
+import githubColors from '../modules/github-colors';
 
 const Form = styled.form`
     margin: 20px 0px;
@@ -59,7 +60,7 @@ const SearchForm = ({
 );
 
 SearchForm.defaultProps = {
-  buttonBackground: colors.blue,
+  buttonBackground: githubColors.blue,
   buttonTextColour: 'white',
   formBackgroundColor: 'white',
   formBorderColor: 'lightgray',
