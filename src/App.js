@@ -18,26 +18,29 @@ class App extends Component {
           >
         </SearchForm>
         <RepositoryBox
-          name='make-love-no-war'
           description='An absolutely sexy component'
+          name='make-love-no-war'
+          forks= '127'
+          language='JavaScript'
+          stars='7'
           >
         </RepositoryBox>
         <RepositoryBox
-          name='make-love-no-war'
           description='An absolutely sexy component'
+          name='make-love-no-war'
+          forks= '127'
+          language='JavaScript'
+          stars='7'
           >
         </RepositoryBox>
         <RepositoryBox
-          name='make-love-no-war'
           description='An absolutely sexy component'
-          >
-        </RepositoryBox>
-        <RepositoryBox
           name='make-love-no-war'
-          description='An absolutely sexy component'
+          forks= '127'
+          language='JavaScript'
+          stars='7'
           >
-        </RepositoryBox>
-
+        </RepositoryBox>        
       </div>
     );
   }

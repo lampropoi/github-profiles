@@ -5,6 +5,7 @@ import colors from '../modules/colors';
 import {media} from '../modules/style-utils';
 
 import star from '../assets/star.svg';
+import fork from '../assets/fork.svg';
 
 const Repository = styled.div`
     margin: 20px 0px;
@@ -36,34 +37,85 @@ const Description = styled.div`
 `;
 
 const Details = styled.div`
+  text-align: left;
+  padding: 10px;
+`;
+
+const Language = styled.span`
+  img {
+    width: 14px;
+    height: 14px;
+  }
+`;
+const Stars = styled.span`
+img {
+  width: 14px;
+  height: 14px;
+}
+`;
+const Forks = styled.span`
+img {
+  width: 14px;
+  height: 14px;
+}
 `;
 
 const RepositoryBox = ({
+  description,
+  forks,
   name,
-  description
+  language,
+  stars
 }) => (
   <Repository>
     <Name>{name}</Name>
     <Description>{description}</Description>
     <Details>
+      <Language>
+        <img src={star} alt='star' />
+        {language}
+      </Language>
+      <Stars>
+        <img src={star} alt='star' />
+        {stars}
+      </Stars>
+      <Forks>
+        <img src={fork} alt='fork' />
+        {forks}
+      </Forks>
     </Details>
   </Repository>
 );
 
 RepositoryBox.defaultProps = {
+  description: 'Unknown',
+  forks: 'Unknown',
   name: 'Unknown',
-  description: 'Unknown'
+  language: 'Unknown',
+  stars: 'Unknown'
 };
 
 RepositoryBox.propTypes = {
   /**
-   * Name of repository
-   */
-  name: PropTypes.string.isRequired,
-  /**
    *  Description of repository
    */
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
+  /**
+   *  forks of repository
+   */
+  forks: PropTypes.string.isRequired,
+  /**
+  * Name of repository
+  */
+  name: PropTypes.string.isRequired,
+  /**
+  * Programming language of repository
+  */
+  language: PropTypes.string.isRequired,
+  /**
+  * stars of repository
+  */
+  stars: PropTypes.string.isRequired
 };
 
 export default RepositoryBox;
