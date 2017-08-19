@@ -37,10 +37,10 @@ class App extends Component {
           description='An absolutely sexy component'
           name='make-love-no-war'
           forks= '127'
-          language='JavaScript'
+          language='xxxxx'
           stars='7'
           >
-        </RepositoryBox>        
+        </RepositoryBox>
       </div>
     );
   }

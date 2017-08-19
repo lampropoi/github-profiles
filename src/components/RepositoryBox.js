@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import colors from '../modules/colors';
 import {media} from '../modules/style-utils';
+import githubColors from '../modules/github-colors';
 
 import star from '../assets/star.svg';
 import fork from '../assets/fork.svg';
@@ -39,12 +41,17 @@ const Description = styled.div`
 const Details = styled.div`
   text-align: left;
   padding: 10px;
+  font-size: 12px;
+  ${media.computer`font-size: 14px;`}
 `;
 
 const Language = styled.span`
-  img {
+  span {
+    background: ${props => githubColors[props.language] && githubColors[props.language].color || colors.darkGray};
     width: 14px;
     height: 14px;
+    border-radius: 7px;
+    display: inline-block;
   }
 `;
 const Stars = styled.span`
@@ -71,8 +78,8 @@ const RepositoryBox = ({
     <Name>{name}</Name>
     <Description>{description}</Description>
     <Details>
-      <Language>
-        <img src={star} alt='star' />
+      <Language language={language}>
+        <span />
         {language}
       </Language>
       <Stars>

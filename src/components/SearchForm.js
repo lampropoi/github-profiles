@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import {media} from '../modules/style-utils';
 
 import colors from '../modules/colors';
-import githubColors from '../modules/github-colors';
 
 const Form = styled.form`
     margin: 20px 0px;
@@ -16,22 +16,26 @@ const Input = styled.input`
   background: ${props => props.formBackgroundColor};
   border: 1px solid lightgray;
   border-radius: 2px;
-  font-size: 14px;
+  font-size: 12px;
   padding-left: 5px;
+  ${media.tablet`font-size: 14px`}
 `;
 
 const Button = styled.button`
   padding: 8px;
-  margin-left: 10px;
   background: ${props => props.buttonBackground};
   font-size: 14px;
-  border-color: ${props => props.buttonBackground};
+  border-color: ${props => props.buttonBackground || colors.gray};
   color: ${props => props.buttonTextColour};
   border: 1px solid;
   border-radius: 3px;
   cursor: pointer;
   display: inline-block;
   white-space: nowrap;
+  margin-top: 10px;
+  position: relative;
+  top: 1px;
+  ${media.tablet`margin-left:10px;top:0`}
 `;
 
 const SearchForm = ({
@@ -60,7 +64,7 @@ const SearchForm = ({
 );
 
 SearchForm.defaultProps = {
-  buttonBackground: githubColors.blue,
+  buttonBackground: colors.blue,
   buttonTextColour: 'white',
   formBackgroundColor: 'white',
   formBorderColor: 'lightgray',
