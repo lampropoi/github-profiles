@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import logo from './assets/logo.svg';
 import SearchForm from './components/SearchForm';
+import RepositoryBox from './components/RepositoryBox';
 
 import './App.css';
 class App extends Component {
@@ -16,6 +17,27 @@ class App extends Component {
           buttonText='Get repositories'
           >
         </SearchForm>
+        <RepositoryBox
+          name='make-love-no-war'
+          description='An absolutely sexy component'
+          >
+        </RepositoryBox>
+        <RepositoryBox
+          name='make-love-no-war'
+          description='An absolutely sexy component'
+          >
+        </RepositoryBox>
+        <RepositoryBox
+          name='make-love-no-war'
+          description='An absolutely sexy component'
+          >
+        </RepositoryBox>
+        <RepositoryBox
+          name='make-love-no-war'
+          description='An absolutely sexy component'
+          >
+        </RepositoryBox>
+
       </div>
     );
   }

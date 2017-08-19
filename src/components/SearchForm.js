@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import colors from '../modules/colors';
+
 const Form = styled.form`
     margin: 20px 0px;
     flex-flow: wrap;
@@ -57,7 +59,7 @@ const SearchForm = ({
 );
 
 SearchForm.defaultProps = {
-  buttonBackground: '#0366d6',
+  buttonBackground: colors.blue,
   buttonTextColour: 'white',
   formBackgroundColor: 'white',
   formBorderColor: 'lightgray',
