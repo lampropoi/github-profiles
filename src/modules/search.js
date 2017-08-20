@@ -1,34 +1,26 @@
-const search = profileName => {
-  const data = [{
-    description: 'An absolutely sexy component',
-    name: 'make-love-no-war1',
-    forks: '127',
-    language: 'JavaScript',
-    stars: '7'
-  }, {
-    description: 'An absolutely sexy component that most of you would like to know about more!',
-    name: 'make-love-no-war2',
-    forks: '127',
-    language: 'JavaScript',
-    stars: '7'
-  }, {
-    description: 'An absolutely sexy component',
-    name: 'make-love-no-war3',
-    forks: '127',
-    language: 'JavaScript',
-    stars: '7'
-  }, {
-    description: 'An absolutely sexy component',
-    name: 'make-love-no-war4',
-    forks: '127',
-    language: 'JavaScript',
-    stars: '7'
-  }];
-  if (profileName === 'lampropoi') {
-    return data;
-  } else {
-    return [];
+/**
+ * Does the request to the API to get back the Github profile data
+ * @param  {string}  profileName The Github username string
+ * @return {array}               An array with the Github API results
+ */
+const search = async profileName => {
+  let result;
+
+  try {
+    const response = await fetch(`http://localhost:9000/api/github-repos/${profileName}`, {
+      method: 'GET',
+      mode: 'cors',
+      redirect: 'follow',
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    });
+    result = await response.json();
+  } catch (error) {
+    // handle error
   }
+
+  return result;
 };
 
 export default search;

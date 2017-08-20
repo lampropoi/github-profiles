@@ -122,19 +122,19 @@ RepositoryBox.propTypes = {
   /**
    *  forks of repository
    */
-  forks: PropTypes.string.isRequired,
+  forks: PropTypes.number.isRequired,
   /**
-  * Name of repository
-  */
+   * Name of repository
+   */
   name: PropTypes.string.isRequired,
   /**
-  * Programming language of repository
-  */
+   * Programming language of repository
+   */
   language: PropTypes.string.isRequired,
   /**
-  * stars of repository
-  */
-  stars: PropTypes.string.isRequired
+   * Stars of repository
+   */
+  stars: PropTypes.number.isRequired
 };
 
 export default RepositoryBox;
