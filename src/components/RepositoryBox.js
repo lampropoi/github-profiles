@@ -10,15 +10,16 @@ import star from '../assets/star.svg';
 import fork from '../assets/fork.svg';
 
 const Repository = styled.div`
-    margin: 20px 0px;
+    color: ${colors.gray};
+    margin: 10px 0px;
     border: 1px solid lightgray;
     border-radius: 2px;
     width: 80%;
     margin-left: 10%;
     float: left;
-    height: 150px;
-    ${media.tablet`width: 42%; margin-left: 5%;`}
-    ${media.computer`width: 29%; margin-left: 3%; height: 200px;`}
+    height: 135px;
+    ${media.tablet`width: 42%; margin: 20px 0px; margin-left: 5%;height: 135px;`}
+    ${media.computer`width: 29%; margin-left: 3%; height: 165px;`}
 `;
 
 const Name = styled.div`
@@ -34,7 +35,8 @@ const Description = styled.div`
   text-align: left;
   padding: 10px;
   font-size: 12px;
-  color: gray;
+  line-height: 20px;
+  height: 40px;
   ${media.computer`font-size: 14px;`}
 `;
 
@@ -46,25 +48,35 @@ const Details = styled.div`
 `;
 
 const Language = styled.span`
+  color: colors.gray;
+  font-size: 12px;
+  ${media.computer`font-size: 14px;`}
   span {
     background: ${props => githubColors[props.language] && githubColors[props.language].color || colors.darkGray};
     width: 14px;
     height: 14px;
     border-radius: 7px;
     display: inline-block;
+    margin-right: 10px;
   }
 `;
 const Stars = styled.span`
-img {
-  width: 14px;
-  height: 14px;
-}
+  font-size: 12px;
+  ${media.computer`font-size: 14px;`}
+  img {
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
 `;
 const Forks = styled.span`
 img {
   width: 14px;
   height: 14px;
-}
+  margin-right: 10px;
+  margin-left: 10px;
+  }
 `;
 
 const RepositoryBox = ({

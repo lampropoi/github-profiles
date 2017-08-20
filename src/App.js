@@ -2,9 +2,19 @@ import React, {Component} from 'react';
 import logo from './assets/logo.svg';
 import SearchForm from './components/SearchForm';
 import RepositoryBox from './components/RepositoryBox';
+import data from './modules/data';
 
 import './App.css';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      repos: data
+    };
+  }
+
   render() {
     return (
       <div className='App'>
@@ -15,32 +25,18 @@ class App extends Component {
         <SearchForm
           placeholder='Type a valid Github username'
           buttonText='Get repositories'
-          >
-        </SearchForm>
-        <RepositoryBox
-          description='An absolutely sexy component'
-          name='make-love-no-war'
-          forks= '127'
-          language='JavaScript'
-          stars='7'
-          >
-        </RepositoryBox>
-        <RepositoryBox
-          description='An absolutely sexy component'
-          name='make-love-no-war'
-          forks= '127'
-          language='JavaScript'
-          stars='7'
-          >
-        </RepositoryBox>
-        <RepositoryBox
-          description='An absolutely sexy component'
-          name='make-love-no-war'
-          forks= '127'
-          language='xxxxx'
-          stars='7'
-          >
-        </RepositoryBox>
+        />
+        {
+          this.state.repos.map(repo => (
+            <RepositoryBox
+              description={repo.description}
+              name={repo.name}
+              forks={repo.forks}
+              language={repo.language}
+              stars={repo.stars}
+            />
+          ))
+        }
       </div>
     );
   }

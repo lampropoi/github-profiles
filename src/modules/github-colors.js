@@ -1,8 +1,8 @@
 export default {
-'1C Enterprise': {
+  '1C Enterprise': {
     color: '#814CCC',
     url: 'https://github.com/trending?l=1C-Enterprise'
-    },
+  },
   ABAP: {
     color: '#E8274B',
     url: 'https://github.com/trending?l=ABAP'
@@ -231,7 +231,7 @@ export default {
     color: '#B0CE4E',
     url: 'https://github.com/trending?l=Component-Pascal'
   },
-  'Cool': {
+  Cool: {
     color: null,
     url: 'https://github.com/trending?l=Cool'
   },
@@ -439,7 +439,7 @@ export default {
     color: null,
     url: 'https://github.com/trending?l=Gentoo-Eclass'
   },
-  'Gherkin': {
+  Gherkin: {
     color: '#5B2063',
     url: 'https://github.com/trending?l=Gherkin'
   },
@@ -1399,4 +1399,4 @@ export default {
     color: null,
     url: 'https://github.com/trending?l=Zimpl'
   }
-}
+};
