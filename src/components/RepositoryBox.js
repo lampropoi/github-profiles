@@ -52,7 +52,7 @@ const Language = styled.span`
   font-size: 12px;
   ${media.computer`font-size: 14px;`}
   span {
-    background: ${props => githubColors[props.language] && githubColors[props.language].color || colors.darkGray};
+    background: ${props => (githubColors[props.language] && githubColors[props.language].color) || colors.darkGray};
     width: 14px;
     height: 14px;
     border-radius: 7px;

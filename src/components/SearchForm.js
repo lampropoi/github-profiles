@@ -44,19 +44,22 @@ const SearchForm = ({
   buttonTextColour,
   formBackgroundColor,
   formBorderColor,
-  disabled,
+  onClick,
   placeholder
 }) => (
   <Form>
     <Input
       formBackgroundColor={formBackgroundColor}
       formBorderColor={formBorderColor}
-      disabled={disabled}
       placeholder={placeholder}
     />
     <Button
       buttonBackground={buttonBackground}
       buttonTextColour={buttonTextColour}
+      onClick={event => {
+        const inputValue = event.target.previousSibling.value;
+        onClick(event, inputValue);
+      }}
     >
       {buttonText}
     </Button>
@@ -68,9 +71,8 @@ SearchForm.defaultProps = {
   buttonTextColour: 'white',
   formBackgroundColor: 'white',
   formBorderColor: 'lightgray',
+  onChange: null,
   onClick: null,
-  clickData: null,
-  disabled: false,
   placeholder: null
 };
 
@@ -96,15 +98,7 @@ SearchForm.propTypes = {
    */
   formBorderColor: PropTypes.string,
   /**
-   * Data passed on button click
-   */
-  clickData: PropTypes.any,
-  /**
-   * Shows if button is disabled or not
-   */
-  disabled: PropTypes.bool,
-  /**
-   * On click of the component, the function that will run
+   * On click of the button in component, the function that will run
    */
   onClick: PropTypes.func,
   /**
