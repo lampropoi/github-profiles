@@ -29,6 +29,9 @@ const Name = styled.div`
   font-size: 12px;
   font-weight: bold;
   ${media.computer`font-size: 14px;padding: 20px 10px;`}
+  a {
+    text-decoration: none;
+  };
 `;
 
 const Description = styled.div`
@@ -84,10 +87,13 @@ const RepositoryBox = ({
   forks,
   name,
   language,
-  stars
+  stars,
+  url
 }) => (
   <Repository>
-    <Name>{name}</Name>
+    <Name>
+      <a href={url} target='_blank'>{name}</a>
+    </Name>
     <Description>{description}</Description>
     <Details>
       <Language language={language}>
@@ -107,7 +113,7 @@ const RepositoryBox = ({
 );
 
 RepositoryBox.defaultProps = {
-  description: 'Unknown',
+  description: 'No description available',
   forks: 'Unknown',
   name: 'Unknown',
   language: 'Unknown',
@@ -118,7 +124,7 @@ RepositoryBox.propTypes = {
   /**
    *  Description of repository
    */
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
   /**
    *  forks of repository
    */
@@ -130,11 +136,15 @@ RepositoryBox.propTypes = {
   /**
    * Programming language of repository
    */
-  language: PropTypes.string.isRequired,
+  language: PropTypes.string,
   /**
    * Stars of repository
    */
-  stars: PropTypes.number.isRequired
+  stars: PropTypes.number.isRequired,
+  /**
+   * url of repository
+   */
+  url: PropTypes.string.isRequired
 };
 
 export default RepositoryBox;

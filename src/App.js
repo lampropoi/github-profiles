@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import _ from 'lodash';
 import SearchForm from './components/SearchForm';
 import RepositoryBox from './components/RepositoryBox';
 import search from './modules/search';
@@ -7,13 +8,18 @@ import colors from './modules/colors';
 
 import logo from './assets/logo.svg';
 
-import './App.css';
-
 const Header = styled.header`
   background-color: ${colors.darkBlue};
   height: 120px;
   padding: 20px;
   color: white;
+  img {
+      height: 80px;
+  }
+`;
+
+const AppWrapper = styled.div`
+  text-align: center;
 `;
 
 class App extends Component {
@@ -30,46 +36,56 @@ class App extends Component {
 
   async searchProfile(event, input) {
     event.preventDefault();
-    try {
-      const repos = await search(input);
+    const sanitizedInput = input.trim();
+    if (sanitizedInput) {
+      try {
+        const unsortedRepos = await search(sanitizedInput);
+        const repos = _.sortBy(unsortedRepos, ['stargazers_count']).reverse().splice(0, 10);
+        this.setState({
+          searchValue: sanitizedInput,
+          repos
+        });
+      } catch (error) {
+        // handle error
+      }
+    } else {
       this.setState({
-        searchValue: input,
-        repos
+        searchValue: ''
       });
-    } catch (error) {
-      // handle error
     }
   }
 
   displayRepositories() {
     let result;
-
+    // debugger;
     if (!this.state.searchValue) {
       result = null;
+    } else if (typeof this.state.repos[0] === 'string') {
+      result = <h1>{this.state.repos[0]}</h1>;
+    } else if (!this.state.repos.length) {
+      result = <h1>No repositories found for this profile</h1>;
     } else if (this.state.repos.length) {
       result = this.state.repos.map(repo => (
         <RepositoryBox
           key={repo.name + repo.description}
-          description={repo.description}
+          url={repo.html_url}
+          description={repo.description || 'No description available'}
           name={repo.name}
           forks={repo.forks}
-          language={repo.language}
+          language={repo.language || 'Unknown'}
           stars={repo.stargazers_count}
         />
       ));
-    } else {
-      result = <h1>Repositories Not Found for this profile</h1>;
     }
-
     return result;
   }
 
   render() {
     return (
-      <div className='App'>
+      <AppWrapper>
         <Header>
-          <img src={logo} className='App-logo' alt='logo' />
-          <h2>Github Looker</h2>
+          <img src={logo} alt='logo' />
+          <h2>Github Top 10 Looker</h2>
         </Header>
         <SearchForm
           placeholder='Type a valid Github username'
@@ -79,7 +95,7 @@ class App extends Component {
         {
           this.displayRepositories()
         }
-      </div>
+      </AppWrapper>
     );
   }
 }
