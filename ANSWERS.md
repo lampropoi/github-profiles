@@ -8,6 +8,7 @@ It was a nice app, that took me approximately 6hours
 
 ## Please describe yourself using JSON.
 {
+  
   "name": "Ioanna",
   
   "preferrableName": "Ioanna",
@@ -21,6 +22,7 @@ It was a nice app, that took me approximately 6hours
   "email": "lampropoi@gmail.com",
   
   "additionalInfo": "Please provide apikey to retrieve more data"
+  
 }
 
 ## How would you improve the application's performance?
