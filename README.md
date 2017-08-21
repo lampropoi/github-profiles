@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+## Github Top 10 Looker
+
+This is a web app in which you can easily retrieve the top 10 repos of any profile from Github!
 
 It is a web app build in which the front-end is built with React.js and the back-end with Node.js.
 
@@ -9,3 +11,5 @@ To run the app, do the following:
 3. To run the front-end, run: `npm start`
 4. In a new terminal, run the back-end with the following command: `npm run server`
 5. Access `http://localhost:3000/` to enjoy the app!
+
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
