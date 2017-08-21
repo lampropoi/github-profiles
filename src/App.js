@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-expressions */
+
 import React, {Component} from 'react';
-import styled from 'styled-components';
+import styled, {injectGlobal} from 'styled-components';
 import _ from 'lodash';
 import SearchForm from './components/SearchForm';
 import RepositoryBox from './components/RepositoryBox';
@@ -7,6 +9,16 @@ import search from './modules/search';
 import colors from './modules/colors';
 
 import logo from './assets/logo.svg';
+
+injectGlobal`
+  @font-face {
+    font-family: 'sans-serif';
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+`;
 
 const Header = styled.header`
   background-color: ${colors.darkBlue};
@@ -20,6 +32,9 @@ const Header = styled.header`
 
 const AppWrapper = styled.div`
   text-align: center;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 `;
 
 class App extends Component {
