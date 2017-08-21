@@ -3,12 +3,15 @@
 import React, {Component} from 'react';
 import styled, {injectGlobal} from 'styled-components';
 import _ from 'lodash';
-import SearchForm from './components/SearchForm';
-import RepositoryBox from './components/RepositoryBox';
+
 import search from './modules/search';
 import colors from './modules/colors';
+import {media} from './modules/style-utils';
 
 import logo from './assets/logo.svg';
+
+import SearchForm from './components/SearchForm';
+import RepositoryBox from './components/RepositoryBox';
 
 injectGlobal`
   @font-face {
@@ -22,12 +25,14 @@ injectGlobal`
 
 const Header = styled.header`
   background-color: ${colors.darkBlue};
-  height: 120px;
+  height: 60px;
   padding: 20px;
   color: white;
   img {
-      height: 80px;
+      height: 20px;
+      ${media.tablet`height: 80px`}
   }
+  ${media.tablet`height: 120px`}
 `;
 
 const AppWrapper = styled.div`
@@ -35,6 +40,11 @@ const AppWrapper = styled.div`
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+`;
+
+const Footer = styled.div`
+  display: none;
+  ${media.tablet`position: fixed;right: 10px;bottom: 2px;display:block;`}
 `;
 
 class App extends Component {
@@ -110,6 +120,9 @@ class App extends Component {
         {
           this.displayRepositories()
         }
+        <Footer>
+        Created by <a href='https://github.com/lampropoi' target='_blank noopener noreferer'>lampropoi</a>
+        </Footer>
       </AppWrapper>
     );
   }

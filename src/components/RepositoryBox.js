@@ -126,7 +126,7 @@ RepositoryBox.propTypes = {
    */
   description: PropTypes.string,
   /**
-   *  forks of repository
+   *  Forks of repository
    */
   forks: PropTypes.number.isRequired,
   /**
@@ -142,7 +142,7 @@ RepositoryBox.propTypes = {
    */
   stars: PropTypes.number.isRequired,
   /**
-   * url of repository
+   * Url of repository
    */
   url: PropTypes.string.isRequired
 };
