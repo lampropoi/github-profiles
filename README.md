@@ -1,10 +1,10 @@
 ## Github Top 10 Looker
 
-This is a web app in which you can easily retrieve the top 10 repos of any profile from Github!
+This is an app that you can easily use retrieve the top 10 repos of any Github profile!
 
-It is a web app build in which the front-end is built with React.js and the back-end with Node.js.
+It is a web app in which, the front-end is built with React.js and the back-end with Node.js.
 
-To run the app, do the following:
+To run the app, please follow the steps below:
 
 1. Clone the repo by running in the terminal `git clone git@github.com:lampropoi/github-profiles.git`
 2. Then, access the project and run `npm install` to install all required npm pacakges
