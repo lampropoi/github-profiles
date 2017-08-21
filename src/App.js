@@ -1,18 +1,22 @@
 /* eslint-disable no-unused-expressions */
-
+// packages
 import React, {Component} from 'react';
 import styled, {injectGlobal} from 'styled-components';
 import _ from 'lodash';
 
+// modules
 import search from './modules/search';
 import colors from './modules/colors';
 import {media} from './modules/style-utils';
 
+// assets
 import logo from './assets/logo.svg';
 
+// components
 import SearchForm from './components/SearchForm';
 import RepositoryBox from './components/RepositoryBox';
 
+// global css
 injectGlobal`
   @font-face {
     font-family: 'sans-serif';
@@ -47,17 +51,35 @@ const Footer = styled.div`
   ${media.tablet`position: fixed;right: 10px;bottom: 2px;display:block;`}
 `;
 
+/**
+ * This is an app in which the user can insert a Github profile name and retrieve user's top 10 repos
+ *
+ */
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
+      /**
+       * repos of user
+       * @type {Array}
+       */
       repos: [],
+      /**
+       * input of user after he has clicked the Search button
+       * @type {string}
+       */
       searchValue: null
     };
 
     this.searchProfile = this.searchProfile.bind(this);
   }
+
+  /**
+   * This function perform the request to the be to get the user's repos
+   * @param  {Object}  event The click event in the search button
+   * @param  {string}  input The input data
+   * @return {Promise}       The repos retrieved from Github
+   */
 
   async searchProfile(event, input) {
     event.preventDefault();
@@ -72,6 +94,10 @@ class App extends Component {
         });
       } catch (error) {
         // handle error
+        this.setState({
+          searchValue: sanitizedInput,
+          repos: ['Error during the request']
+        });
       }
     } else {
       this.setState({
@@ -79,10 +105,12 @@ class App extends Component {
       });
     }
   }
-
+  /**
+  * This function displays the user's repos
+  * @return {Object} user's repo
+  */
   displayRepositories() {
     let result;
-    // debugger;
     if (!this.state.searchValue) {
       result = null;
     } else if (typeof this.state.repos[0] === 'string') {

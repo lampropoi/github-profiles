@@ -39,7 +39,8 @@ const Description = styled.div`
   padding: 10px;
   font-size: 12px;
   line-height: 20px;
-  height: 40px;
+  height: 28px;
+  overflow: hidden;
   ${media.computer`font-size: 14px;`}
 `;
 
@@ -47,6 +48,7 @@ const Details = styled.div`
   text-align: left;
   padding: 10px;
   font-size: 12px;
+  margin-top: 10px;
   ${media.computer`font-size: 14px;`}
 `;
 

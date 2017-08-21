@@ -2,15 +2,15 @@ require('isomorphic-fetch');
 
 const getGithubRepos = (request, response) => {
   const {username} = request.params;
-  // const config = {
-  //   method: 'GET',
-  //   headers: {
-  //     Accept: 'application/vnd.github.v3+json',
-  //   },
-  //   mode: 'cors',
-  //   cache: 'default',
-  // };
-  fetch(`https://api.github.com/users/${username}/repos`)
+  const config = {
+    method: 'GET',
+    headers: {
+      Accept: 'application/vnd.github.v3+json',
+    },
+    mode: 'cors',
+    cache: 'default',
+  };
+  fetch(`https://api.github.com/users/${username}/repos`, config)
     .then(res => {
       res.json().then(body => {
         if (res.status === 200) {
